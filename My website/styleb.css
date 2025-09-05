@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    overflow-x: hidden;
+    background-color: #F4F4F4;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+/* --- Color Variables --- */
+:root {
+    --primary-orange: #FF4500;
+    --secondary-blue: #002E63;
+    --accent-green: #008000;
+    --dark: #1A1A1A;
+    --light-bg: #F4F4F4;
+    --honda-red: #E60012;
+    --ktm-orange: #FF6600;
+    --kawasaki-green: #008000;
+    --yamaha-blue: #002E63;
+    --suzuki-yellow: #FFD700;
+    --text-color: #333;
+
+    /* Badge Colors */
+    --badge-beginner: #4CAF50;
+    --badge-intermediate: #FF9800;
+    --badge-experienced: #F44336;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--dark);
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.language-tab, .menu-tab {
+    position: relative;
+}
+
+/* --- Modern Language Button --- */
+.language-select {
+    background: linear-gradient(145deg, #444, #222);
+    color: white;
+    font-size: 1rem;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px var(--primary-orange), inset 0 -2px 5px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    appearance: none;
+}
+
+.language-select:hover, .language-select:focus {
+    background: linear-gradient(145deg, #555, #333);
+    color: var(--primary-orange);
+    box-shadow: 0 0 20px var(--primary-orange), inset 0 -2px 5px rgba(0,0,0,0.3);
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    background: linear-gradient(135deg, #222, #333);
+    border-radius: 10px;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 150px;
+    box-shadow: 0 0 15px var(--primary-orange), 0 5px 20px rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+.language-tab.active .language-dropdown {
+    display: block;
+}
+
+.language-dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.language-dropdown li a:hover {
+    background: rgba(255,69,0,0.1);
+    color: #fff;
+    box-shadow: 0 0 10px var(--primary-orange);
+    transform: translateX(5px);
+}
+
+/* --- Modern Menu Button --- */
+.menu-button {
+    background: linear-gradient(145deg, #444, #222);
+    color: white;
+    font-size: 1rem;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--primary-orange), inset 0 -2px 5px rgba(0,0,0,0.3);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.menu-button:hover, .menu-button:focus {
+    background: linear-gradient(145deg, #555, #333);
+    color: var(--primary-orange);
+    box-shadow: 0 0 15px var(--primary-orange), inset 0 -2px 5px rgba(0,0,0,0.3);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: linear-gradient(135deg, #222, #333);
+    border-radius: 10px;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 115px;
+    box-shadow: 0 0 15px var(--primary-orange), 0 5px 20px rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+.menu-tab.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(255,69,0,0.1);
+    color: #ffffff;
+    box-shadow: 0 0 10px var(--primary-orange);
+    transform: translateX(5px);
+}
+
+/* --- Tabs --- */
+.tabs {
+    max-width: 1920px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+
+.tabs label {
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: #ddd;
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tabs label:hover {
+    background-color: #ccc;
+}
+
+.tabs input:checked + label {
+    color: #fff;
+}
+
+#tab-honda:checked + label { background-color: var(--honda-red); }
+#tab-ktm:checked + label { background-color: var(--ktm-orange); }
+#tab-kawasaki:checked + label { background-color: var(--kawasaki-green); }
+#tab-yamaha:checked + label { background-color: var(--yamaha-blue); }
+#tab-suzuki:checked + label { background-color: var(--suzuki-yellow); }
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 2px solid var(--primary-orange);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tabs input:checked + label + .tab-content {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Banner --- */
+.banner {
+    width: 100%;
+    height: 500px;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.banner:hover {
+    transform: scale(1.02);
+}
+
+.banner-text {
+    font-size: 48px;
+    font-weight: bold;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Banner Images for all bikes --- */
+.banner-honda { background-image: url('images/honda.jpg'); }
+.banner-ktm { background-image: url('images/ktm.jpg'); }
+.banner-kawasaki { background-image: url('images/kawasaki.jpg'); }
+.banner-yamaha { background-image: url('images/yamaha.jpg'); }
+.banner-suzuki { background-image: url('images/suzuki.jpg'); }
+
+/* --- Brand Info --- */
+.brand-info {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.brand-info h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.brand-info h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* --- Bike H3 Colors --- */
+#info-honda h3 { color: var(--honda-red); }
+#info-ktm h3 { color: var(--ktm-orange); }
+#info-kawasaki h3 { color: var(--kawasaki-green); }
+#info-yamaha h3 { color: var(--yamaha-blue); }
+#info-suzuki h3 { color: var(--suzuki-yellow); }
+
+.brand-info p {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+/* --- Badges --- */
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.badge.beginner { background-color: var(--badge-beginner); }
+.badge.intermediate { background-color: var(--badge-intermediate); }
+.badge.experienced { background-color: var(--badge-experienced); }
+
+/* --- Contact Form --- */
+#contact {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact label {
+    font-weight: bold;
+}
+
+#contact input, #contact textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#contact textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#contact button {
+    background-color: var(--primary-orange);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact button:hover {
+    background-color: #e63d00;
+}
+
+/* --- Back to Top Button --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-orange);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s;
+}
+
+#back-to-top.show {
+    display: block;
+    opacity: 1;
+}
+
+#back-to-top:hover {
+    background-color: #e63d00;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .language-tab, .menu-tab {
+        margin-bottom: 10px;
+    }
+
+    .tabs label {
+        display: block;
+        text-align: center;
+    }
+
+    .banner {
+        height: 300px;
+    }
+
+    .banner-text {
+        font-size: 32px;
+    }
+}
